@@ -1,12 +1,12 @@
 {
   "name": "product-stock-monitor",
   "version": "1.0.0",
-  "description": "",
+  "description": "This program tracks products that are in high demand and notifies users in Discord that the product is back in stock",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Abdulmalik Elghedafi",
   "license": "ISC"
 }
