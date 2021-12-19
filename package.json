@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Abdulmalik Elghedafi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  }
 }
