@@ -1,0 +1,5 @@
+# This file .gitignore ignores the below files so they're not uploaded to git.
+
+node_modules
+.env
+config.json
