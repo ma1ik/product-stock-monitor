@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This program tracks products that are in high demand and notifies users in Discord that the product is back in stock",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +11,7 @@
   "author": "Abdulmalik Elghedafi",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^13.3.1"
+    "discord.js": "^13.3.1",
+    "got": "^12.0.0"
   }
 }
