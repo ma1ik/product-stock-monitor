@@ -1,14 +1,29 @@
-// Import the fetch api for node & cheerio to use for web scraping
-import fetch, {Headers} from 'node-fetch';
+// Import axios for requests module & cheerio for web scraping
+import axios from 'axios';
 import cheerio from "cheerio";
+// Look at Google Notes - continue where I left from.
+// https://www.simplygames.com/p/xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s
+const getProductUrl = (product_id) => `https://www.simplygames.com/p/${product_id}`;
 
-// Added the header for the Edge browser
-const meta = {
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36 Edg/96.0.1054.62',
-};
-const headers = new Headers(meta);
-const url = 'https://www.simplygames.com/p/xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s'
+async function getProduct(product_id) {
+    const productUrl = getProductUrl(product_id);
+    const { data }= await axios.get(productUrl, {
+        headers: {
+            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            Host: 'www.simplygames.com',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'en-GB,en;q=0.9,en-US;q=0.8',
 
+        },
+    });
+    console.log(data);
+}
+
+getProduct('xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s');
+
+
+/*
 // Sending a Get request to the URL - SimplyGames
 const get_request = async () => {
     const response = await fetch(url,
@@ -16,17 +31,25 @@ const get_request = async () => {
     const body = await response.text();
     const $ = cheerio.load(body);
     const product = $('.product_content').children('h1').text();
-    const stockStatus = $('.in_stock');
-    const price = $('.price_point');
+    const stockStatus = $('.in_stock').text().trim();
+    const price = $('.price_point').text();
 
-    const output = [product];
+    const productInfo = {
+        "Product name": product,
+        "Stock Status": stockStatus,
+        "Price": price
+    };
 
 
-    console.log(output);
+    console.log(productInfo);
 
 };
+
 // Runs the get_request function
 get_request();
+*/
+
+
 
 // TODO
 /*
@@ -37,7 +60,11 @@ First task to do
 - Stockstatus aka true or false
 - Price
 - Image can be later for discord
+Unit test regularly for each function
 
 Do this for all products that I want monitor, may want to put it in an array
+I can have an empty array which has all the products it wants to monitor // a file it
+wants to read from
  */
+
 
