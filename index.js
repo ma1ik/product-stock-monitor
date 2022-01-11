@@ -1,7 +1,6 @@
 // Import axios for requests module & cheerio for web scraping
 import axios from 'axios';
 import cheerio from "cheerio";
-
 // https://www.simplygames.com/p/xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s
 
 // Getting the product url and replacing it with a product ID
@@ -20,9 +19,11 @@ async function getProduct(product_id) {
         }
     });
 
+    // Web scrapes for the product, stockStatus and price
     const $ = cheerio.load(data);
     const product = $('.product_content').children('h1').text();
-    const stockStatus = $('.in_stock').text();
+    // If product is in stock it returns true, otherwise returns false
+    const stockStatus = $('.in_stock').text().includes('In Stock');
     const price = $('.price_point').text();
     const productInfo = {
         'Product Name': product,
@@ -32,5 +33,7 @@ async function getProduct(product_id) {
     console.log(productInfo);
 }
 
+
 getProduct('xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s');
+//getProduct('ps5-console-ps4');
 
