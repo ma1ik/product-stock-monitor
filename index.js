@@ -19,6 +19,12 @@ async function getProduct(product_id) {
         }
     });
 
+    // Declaring all products that will be monitored
+    const allProducts = [
+        'xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s',
+        'ps5-console-ps4'
+    ]
+
     // Web scrapes for the product, stockStatus and price
     const $ = cheerio.load(data);
     const product = $('.product_content').children('h1').text();
@@ -31,9 +37,15 @@ async function getProduct(product_id) {
         'Price': price,
     }
     console.log(productInfo);
+
+    // loops through the allProducts array
+    // - create an array of your products, then loop thru and console log or just json stringify the array and log it
+    // for i in allProducts
+
+
+
 }
 
-
-getProduct('xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s');
+getProduct();
 //getProduct('ps5-console-ps4');
 
