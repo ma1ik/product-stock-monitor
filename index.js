@@ -7,7 +7,7 @@ import cheerio from "cheerio";
 const getProductUrl = (product_id) => `https://www.simplygames.com/p/${product_id}`;
 
 // Function for getting the product ID information with the use of headers to allow us to act like a web browser & avoid bot detection.
-async function getProduct(product_id) {
+async function getProductSimplyGames(product_id) {
     const productUrl = getProductUrl(product_id);
     const { data }= await axios.get(productUrl, {
         headers: {
@@ -18,12 +18,6 @@ async function getProduct(product_id) {
             'Accept-Language': 'en-GB,en;q=0.9,en-US;q=0.8',
         }
     });
-
-    // Declaring all products that will be monitored
-    const allProducts = [
-        'xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s',
-        'ps5-console-ps4'
-    ]
 
     // Web scrapes for the product, stockStatus and price
     const $ = cheerio.load(data);
@@ -42,10 +36,30 @@ async function getProduct(product_id) {
     // - create an array of your products, then loop thru and console log or just json stringify the array and log it
     // for i in allProducts
 
-
-
 }
+    // An array of all products to be monitored
+    const allProducts = [
+        'xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s',
+        'xbox-series-s-console-xbox-series-x',
+        'ps5-console-ps4',
+        'playstation5-digital-edition-ps5',
+        'ps4-slim-500gb-console-ps4',
+        'xbox-one-x-console-xbox-one',
+        'xbox-one-s-console--1tb-hdd-xbox-one',
+        'nintendo-switch-neon-redneon-blue-nintendo-switch',
+        'nintendo-switch-lite-coral--animal-crossing-bundle-nintendo-switch'
+    ]
 
-getProduct();
-//getProduct('ps5-console-ps4');
+    // A for loop that loops through the allProducts array and logs the status of each product e.g. name, status of stock and price
+
+    for (let i = 0; i < allProducts.length; i++) {
+        getProductSimplyGames(allProducts[i]);
+    }
+
+
+
+
+
+
+
 
