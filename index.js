@@ -50,7 +50,7 @@ async function getProductSimplyGames(product_id) {
         'nintendo-switch-lite-coral--animal-crossing-bundle-nintendo-switch'
     ]
 
-    // A for loop that loops through the allProducts array and logs the status of each product e.g. name, status of stock and price
+    // A for loop that loops through the allProducts array and logs the status of each product e.g. name, status of stock and price.
 
     for (let i = 0; i < allProducts.length; i++) {
         getProductSimplyGames(allProducts[i]);
