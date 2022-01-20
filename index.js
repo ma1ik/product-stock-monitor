@@ -56,7 +56,7 @@ async function getProductSimplyGames(product_id) {
     // simplyGames(allProducts);
 
 /*
-    // This is async code used in a for loop, calling simplygamesfunc will print to console all the products info
+    // This is async code used in a for loop, calling simplygamesfunc will print to console all the products info -- Not sure if needed
         const simplyGamesfunc = async _ => {
             for (let i = 0; i < allProducts.length; i++) {
                 const x = allProducts[i]
@@ -69,6 +69,34 @@ async function getProductSimplyGames(product_id) {
 
 */
 
+// -------------- ShopTo --------------
+
+// Product url for ShopTo
+const getProductUrlShopTo = (product_id) => `https://www.shopto.net/en/${product_id}`;
+
+// Get product information using a function with the use of a product ID and using headers from the browser
+async function getProductShopTo(product_id) {
+    const productUrl = getProductUrlShopTo(product_id);
+    const { data } = await axios.get(productUrl, {
+        headers: {
+            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.62',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'en-GB,en;q=0.9,en-US;q=0.8',
+            Authority: 'www.shopto.net'
+        }
+    });
+
+    // Web scraping with cheerio
+    // Still scraping the product title for the ps5 on shopto
+    const $ = cheerio.load(data);
+    const product = $('.itemcard_dynamic_element, .itemcard_description_wrapper, .itemcard_brand, .itemcard_item_name, .item_brand_name' ).text();
+    const productInfo = {
+        'product': product
+    }
+
+console.log(productInfo);
+}
 
 
 
