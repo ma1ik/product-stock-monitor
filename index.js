@@ -1,14 +1,13 @@
 // Import axios for requests module & cheerio for web scraping
 import axios from 'axios';
 import cheerio from "cheerio";
-// https://www.simplygames.com/p/xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s
 
 // Getting the product url and replacing it with a product ID
-const getProductUrl = (product_id) => `https://www.simplygames.com/p/${product_id}`;
+const getProductUrlSimplyGames = (product_id) => `https://www.simplygames.com/p/${product_id}`;
 
 // Function for getting the product ID information with the use of headers to allow us to act like a web browser & avoid bot detection.
 async function getProductSimplyGames(product_id) {
-    const productUrl = getProductUrl(product_id);
+    const productUrl = getProductUrlSimplyGames(product_id);
     const { data }= await axios.get(productUrl, {
         headers: {
             Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -30,12 +29,8 @@ async function getProductSimplyGames(product_id) {
         'Stock Status': stockStatus,
         'Price': price,
     }
+    // Prints product info variables needed for program to function
     console.log(productInfo);
-
-    // loops through the allProducts array
-    // - create an array of your products, then loop thru and console log or just json stringify the array and log it
-    // for i in allProducts
-
 }
     // An array of all products to be monitored
     const allProducts = [
@@ -50,11 +45,16 @@ async function getProductSimplyGames(product_id) {
         'nintendo-switch-lite-coral--animal-crossing-bundle-nintendo-switch'
     ]
 
-    // A for loop that loops through the allProducts array and logs the status of each product e.g. name, status of stock and price.
-
+    // A function for loop that loops through the allProducts array and logs the status of each product e.g. name, status of stock and price.
+    const simplyGames = allProducts => {
     for (let i = 0; i < allProducts.length; i++) {
         getProductSimplyGames(allProducts[i]);
     }
+}
+    // To run the simplyGames function website
+
+    simplyGames(allProducts);
+
 
 
 
