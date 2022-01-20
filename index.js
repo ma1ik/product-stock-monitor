@@ -53,7 +53,21 @@ async function getProductSimplyGames(product_id) {
 }
     // To run the simplyGames function website
 
-    simplyGames(allProducts);
+    // simplyGames(allProducts);
+
+/*
+    // This is async code used in a for loop, calling simplygamesfunc will print to console all the products info
+        const simplyGamesfunc = async _ => {
+            for (let i = 0; i < allProducts.length; i++) {
+                const x = allProducts[i]
+                const y = await getProductSimplyGames(x)
+                getProductSimplyGames(y);
+            }
+    }
+
+    simplyGamesfunc()
+
+*/
 
 
 
