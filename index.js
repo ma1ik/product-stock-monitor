@@ -77,8 +77,10 @@ async function getProductShopTo(product_id) {
     // Still scraping the product title for the ps5 on shopto
     const $ = cheerio.load(data);
     const product = $('.itemcard_item_name').children('span').text().trim();
+    const stockStatus = $('.inventory.orderbox_inventory.not_available').children('p').text();
     const productInfo = {
-        'Product': product
+        'Product': product,
+        'Stock Status': stockStatus
     }
 
 
