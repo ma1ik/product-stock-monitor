@@ -1,6 +1,6 @@
 // Import axios for requests module & cheerio for web scraping
 import axios from 'axios';
-import cheerio from "cheerio";
+import cheerio from 'cheerio';
 
 // Getting the product url and replacing it with a product ID
 const getProductUrlSimplyGames = (product_id) => `https://www.simplygames.com/p/${product_id}`;
@@ -52,24 +52,10 @@ async function getProductSimplyGames(product_id) {
     }
 }
     // To run the simplyGames function website
-
     // simplyGames(allProducts);
 
-/*
-    // This is async code used in a for loop, calling simplygamesfunc will print to console all the products info -- Not sure if needed
-        const simplyGamesfunc = async _ => {
-            for (let i = 0; i < allProducts.length; i++) {
-                const x = allProducts[i]
-                const y = await getProductSimplyGames(x)
-                getProductSimplyGames(y);
-            }
-    }
-
-    simplyGamesfunc()
-
-*/
-
 // -------------- ShopTo --------------
+
 
 // Product url for ShopTo
 const getProductUrlShopTo = (product_id) => `https://www.shopto.net/en/${product_id}`;
@@ -79,26 +65,32 @@ async function getProductShopTo(product_id) {
     const productUrl = getProductUrlShopTo(product_id);
     const { data } = await axios.get(productUrl, {
         headers: {
-            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.62',
+            Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+            Host: 'www.shopto.net',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:96.0) Gecko/20100101 Firefox/96.0',
             'Accept-Encoding': 'gzip, deflate, br',
-            'Accept-Language': 'en-GB,en;q=0.9,en-US;q=0.8',
-            Authority: 'www.shopto.net'
+            'Accept-Language': 'en-GB,en;q=0.5',
         }
     });
 
     // Web scraping with cheerio
     // Still scraping the product title for the ps5 on shopto
     const $ = cheerio.load(data);
-    const product = $('.itemcard_dynamic_element, .itemcard_description_wrapper, .itemcard_brand, .itemcard_item_name, .item_brand_name' ).text();
+    const product = $('.itemcard_item_name').children('span').text().trim();
     const productInfo = {
-        'product': product
+        'Product': product
     }
 
-console.log(productInfo);
-}
 
 
+
+    console.log(productInfo);
+};
+
+    // products for shopTo to be monitored!
+
+
+    getProductShopTo('ps5hw01-playstation-5-console-p191472/');
 
 
 
