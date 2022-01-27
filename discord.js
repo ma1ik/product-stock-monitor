@@ -1,4 +1,5 @@
 /*
+You'll need to update the discord.js version from v12 to v13 - see website
 This is for the discord server, where the bot joins the server and comes online using the client, token
 You can see it here: https://discordjs.guide/creating-your-bot/command-handling.html#individual-command-files
  */

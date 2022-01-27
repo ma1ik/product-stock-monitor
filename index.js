@@ -77,21 +77,29 @@ async function getProductZavvi(product_id) {
     // Still scraping the product title on Zavvi
     const $ = cheerio.load(data);
     const product = $('.productName_title').text();
-    //const stockStatus = $('.').text(); // Need to check if add to basket is clickable then it's still in stock, if not then it's out of stock
+    const stockStatus = $('.productAddToBasket.productAddToBasket-buyNow.js-e2e-add-basket').text().includes('Buy Now');
     const productInfo = {
-        'Product': product
+        'Product': product,
+        'Stock Status': stockStatus
     }
-
-
-
-
-    console.log(productInfo);
+console.log(productInfo);
 };
 
-    // products for Zavvi to be monitored!
+    // All products to be monitored for Zavvi
+    const allProductsZavvi = [
+        'consoles-nintendo-switch/nintendo-switch-neon-red-blue/12749474.html',
+        'nintendo-switch-lite-coral/12667100.html'
+    ]
 
+    // A function for loop that loops through the allProductsZavvi array and logs the status of each product e.g. name, status of stock and price.
+    const zavvi = allProductsZavvi => {
+        for (let i = 0; i < allProductsZavvi.length; i++) {
+            getProductZavvi(allProductsZavvi[i]);
+        }
+    }
+    // To run the Zavvi function website
+    zavvi(allProductsZavvi);
 
-    getProductZavvi('consoles-nintendo-switch/nintendo-switch-neon-red-blue/12749474.html');
 
 
 
