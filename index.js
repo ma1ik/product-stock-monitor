@@ -86,7 +86,7 @@ import cheerio from 'cheerio';
         'Store': store,
         'Product': product,
         'Stock Status': stockStatus,
-        'Price': price
+        'Price': price,
     }
 
     console.log(productInfo);
