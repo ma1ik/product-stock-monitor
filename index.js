@@ -2,29 +2,32 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 
-// Getting the product url and replacing it with a product ID
-const getProductUrlSimplyGames = (product_id) => `https://www.simplygames.com/p/${product_id}`;
+    // Getting the product url and replacing it with a product ID
+    const getProductUrlSimplyGames = (product_id) => `https://www.simplygames.com/p/${product_id}`;
 
-// Function for getting the product ID information with the use of headers to allow us to act like a web browser & avoid bot detection.
-async function getProductSimplyGames(product_id) {
-    const productUrl = getProductUrlSimplyGames(product_id);
-    const { data }= await axios.get(productUrl, {
-        headers: {
-            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-            Host: 'www.simplygames.com',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Accept-Language': 'en-GB,en;q=0.9,en-US;q=0.8',
-        }
-    });
+    // Function for getting the product ID information with the use of headers to allow us to act like a web browser & avoid bot detection.
+    async function getProductSimplyGames(product_id) {
+        const productUrl = getProductUrlSimplyGames(product_id);
+        const { data }= await axios.get(productUrl, {
+            headers: {
+                Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                Host: 'www.simplygames.com',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Accept-Language': 'en-GB,en;q=0.9,en-US;q=0.8',
+            }
+        });
 
-    // Web scrapes for the product, stockStatus and price
+    /* Web scrapes for the product, stockStatus and price.
+       For stock status, it checks if product is in stock and returns true, otherwise returns false
+    */
     const $ = cheerio.load(data);
+    const store = 'SimplyGames';
     const product = $('.product_content').children('h1').text();
-    // If product is in stock it returns true, otherwise returns false
     const stockStatus = $('.in_stock').text().includes('In Stock');
     const price = $('.price_point').text();
     const productInfo = {
+        'Store': store,
         'Product Name': product,
         'Stock Status': stockStatus,
         'Price': price,
@@ -32,7 +35,7 @@ async function getProductSimplyGames(product_id) {
     // Prints product info variables needed for program to function
     console.log(productInfo);
 }
-    // An array of all products to be monitored
+    // Array of product pages to be monitored
     const allProducts = [
         'xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s',
         'xbox-series-s-console-xbox-series-x',
@@ -49,37 +52,38 @@ async function getProductSimplyGames(product_id) {
     const simplyGames = allProducts => {
     for (let i = 0; i < allProducts.length; i++) {
         getProductSimplyGames(allProducts[i]);
-    }
-}
-    // To run the simplyGames function website
-    // simplyGames(allProducts);
-
-// -------------- ShopTo --------------
-
-
-// Product url for Zavvi
-const getProductUrlZavvi = (product_id) => `https://www.zavvi.com/${product_id}`;
-
-// Get product information using a function with the use of a product ID and using headers from the browser
-async function getProductZavvi(product_id) {
-    const productUrl = getProductUrlZavvi(product_id);
-    const { data } = await axios.get(productUrl, {
-        headers: {
-            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-            Host: 'www.zavvi.com',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:96.0) Gecko/20100101 Firefox/96.0',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Accept-Language': 'en-GB,en;q=0.5',
         }
+    };
+
+// -------------- Zavvi Web Scraping--------------
+
+
+    // Product url for Zavvi
+    const getProductUrlZavvi = (product_id) => `https://www.zavvi.com/${product_id}`;
+
+    // Get product information using a function with the use of a product ID and using headers from the browser
+    async function getProductZavvi(product_id) {
+        const productUrl = getProductUrlZavvi(product_id);
+        const { data } = await axios.get(productUrl, {
+            headers: {
+                Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+                Host: 'www.zavvi.com',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:96.0) Gecko/20100101 Firefox/96.0',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Accept-Language': 'en-GB,en;q=0.5',
+            }
     });
 
-    // Web scrapes for the product, stockStatus and price
+    /* Web scrapes for the product, stockStatus and price.
+    For stock status, it checks if product is in stock and returns true, otherwise returns false
+    */
     const $ = cheerio.load(data);
+    const store = 'Zavvi';
     const product = $('.productName_title').text();
-    // If product has a 'Buy Now' button = stock status turns True, otherwise turns False
     const stockStatus = $('.productAddToBasket.productAddToBasket-buyNow.js-e2e-add-basket').text().includes('Buy Now');
     const price = $('.productPrice_price').text().trim();
     const productInfo = {
+        'Store': store,
         'Product': product,
         'Stock Status': stockStatus,
         'Price': price
@@ -87,7 +91,7 @@ async function getProductZavvi(product_id) {
 
     console.log(productInfo);
 
-};
+}
 
     // All products to be monitored for Zavvi
     const allProductsZavvi = [
@@ -101,12 +105,15 @@ async function getProductZavvi(product_id) {
             getProductZavvi(allProductsZavvi[i]);
         }
     }
-    // To run the Zavvi function website
+    // To run the Zavvi and SimplyGames function website
     zavvi(allProductsZavvi);
+    simplyGames(allProducts);
 
 
 
-
+/*
+TODO LIST:
+ */
 
 
 
