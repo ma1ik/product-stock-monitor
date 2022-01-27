@@ -57,16 +57,16 @@ async function getProductSimplyGames(product_id) {
 // -------------- ShopTo --------------
 
 
-// Product url for ShopTo
-const getProductUrlShopTo = (product_id) => `https://www.shopto.net/en/${product_id}`;
+// Product url for Zavvi
+const getProductUrlZavvi = (product_id) => `https://www.zavvi.com/${product_id}`;
 
 // Get product information using a function with the use of a product ID and using headers from the browser
-async function getProductShopTo(product_id) {
-    const productUrl = getProductUrlShopTo(product_id);
+async function getProductZavvi(product_id) {
+    const productUrl = getProductUrlZavvi(product_id);
     const { data } = await axios.get(productUrl, {
         headers: {
-            Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-            Host: 'www.shopto.net',
+            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+            Host: 'www.zavvi.com',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:96.0) Gecko/20100101 Firefox/96.0',
             'Accept-Encoding': 'gzip, deflate, br',
             'Accept-Language': 'en-GB,en;q=0.5',
@@ -74,13 +74,12 @@ async function getProductShopTo(product_id) {
     });
 
     // Web scraping with cheerio
-    // Still scraping the product title for the ps5 on shopto
+    // Still scraping the product title on Zavvi
     const $ = cheerio.load(data);
-    const product = $('.itemcard_item_name').children('span').text().trim();
-    const stockStatus = $('.inventory.orderbox_inventory.not_available').children('p').text();
+    const product = $('.productName_title').text();
+    //const stockStatus = $('.').text(); // Need to check if add to basket is clickable then it's still in stock, if not then it's out of stock
     const productInfo = {
-        'Product': product,
-        'Stock Status': stockStatus
+        'Product': product
     }
 
 
@@ -89,10 +88,10 @@ async function getProductShopTo(product_id) {
     console.log(productInfo);
 };
 
-    // products for shopTo to be monitored!
+    // products for Zavvi to be monitored!
 
 
-    getProductShopTo('ps5hw01-playstation-5-console-p191472/');
+    getProductZavvi('consoles-nintendo-switch/nintendo-switch-neon-red-blue/12749474.html');
 
 
 
