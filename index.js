@@ -73,16 +73,20 @@ async function getProductZavvi(product_id) {
         }
     });
 
-    // Web scraping with cheerio
-    // Still scraping the product title on Zavvi
+    // Web scrapes for the product, stockStatus and price
     const $ = cheerio.load(data);
     const product = $('.productName_title').text();
+    // If product has a 'Buy Now' button = stock status turns True, otherwise turns False
     const stockStatus = $('.productAddToBasket.productAddToBasket-buyNow.js-e2e-add-basket').text().includes('Buy Now');
+    const price = $('.productPrice_price').text().trim();
     const productInfo = {
         'Product': product,
-        'Stock Status': stockStatus
+        'Stock Status': stockStatus,
+        'Price': price
     }
-console.log(productInfo);
+
+    console.log(productInfo);
+
 };
 
     // All products to be monitored for Zavvi
