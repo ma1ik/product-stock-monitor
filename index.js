@@ -1,6 +1,6 @@
 // Import axios for requests module & cheerio for web scraping
-import axios from 'axios';
-import cheerio from 'cheerio';
+const axios = require('axios');
+const cheerio = require('cheerio');
 
     // Getting the product url and replacing it with a product ID
     const getProductUrlSimplyGames = (product_id) => `https://www.simplygames.com/p/${product_id}`;
