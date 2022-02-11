@@ -111,9 +111,3 @@ const cheerio = require('cheerio');
 
 
 
-/*
-TODO LIST:
- */
-
-
-
