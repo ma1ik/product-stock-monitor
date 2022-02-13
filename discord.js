@@ -19,7 +19,7 @@ client.on('messageCreate', message => {
     if (message.author.bot) return;
     console.log(message.content);
     // compares message with user and bot replies
-    if (message.content === 'Hello') {
+    if (message.content === 'hello') {
         // randomly picks a response to reply to user
         let greetings = ['Hi', 'Hey', 'Hello', 'yo', "what's up?"];
         let randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
