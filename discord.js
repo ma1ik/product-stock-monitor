@@ -12,7 +12,13 @@ client.once('ready', () => {
 
 // When user sends message in Discord, message appears in terminal
 client.on('messageCreate', message => {
+    // checks if author who sent message is a bot
+    if (message.author.bot) return;
     console.log(message.content);
+    // compares message with user and bot replies
+    if (message.content === 'Hello') {
+        message.channel.send('Hey there!');
+    }
 });
 
 // Login to Discord with your client's token
