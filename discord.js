@@ -18,11 +18,18 @@ client.on('messageCreate', message => {
     // compares message with user and bot replies
     if (message.content.toLowerCase() === 'hello') {
         // randomly picks a response to reply to user
-        let greetings = ['Hi', 'Hey', 'Hello', 'yo'];
+        let greetings = ['Hi', 'Hey', 'Hello', 'Yo'];
         let randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
         // greets user's name and asks how can I help
-        message.channel.send(randomGreeting + " " + message.author.username + ", How can I help you today?");
+        message.channel.send(randomGreeting + " " + message.author.username + ", how can I help you today?");
+        message.channel.send('Please select from the options below:' + '\n' +
+            'I would like to track stock')
     }
+    // User asks to track stock
+    if (message.content === 'I would like to track stock') {
+        message.channel.send('Alright, what product would you like to track?')
+    };
+
 });
 
 // Login to Discord with your client's token
