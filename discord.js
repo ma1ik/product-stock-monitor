@@ -10,9 +10,6 @@ client.once('ready', () => {
     console.log(`${client.user.tag} has logged in.`);
 });
 
-
-//const greetings = ['Hello', 'Hey', 'Hi' ,'Whats up', "what's up?", 'whats up?'];
-
 // When user sends message in Discord, message appears in terminal
 client.on('messageCreate', message => {
     // checks if author who sent message is a bot
@@ -21,10 +18,10 @@ client.on('messageCreate', message => {
     // compares message with user and bot replies
     if (message.content === 'hello') {
         // randomly picks a response to reply to user
-        let greetings = ['Hi', 'Hey', 'Hello', 'yo', "what's up?"];
+        let greetings = ['Hi', 'Hey', 'Hello', 'yo'];
         let randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-        message.channel.send(randomGreeting);
+        // greets user's name and asks how can I help
+        message.channel.send(randomGreeting + " " + message.author.username + ", How can I help you today?");
     }
 });
 
