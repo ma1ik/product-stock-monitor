@@ -24,11 +24,14 @@ client.on('messageCreate', message => {
         message.channel.send(randomGreeting + " " + message.author.username + ", how can I help you today?");
         message.channel.send('Please select from the options below:' + '\n' +
             'I would like to track stock')
+        // else statement if user doesn't put a valid input
+    } else {
+        message.channel.send('Sorry, I didn\'t quite understand that, can you make sure the input is correct!');
     }
     // User asks to track stock
     if (message.content === 'I would like to track stock') {
         message.channel.send('Alright, what product would you like to track?')
-    };
+    }
 
 });
 
