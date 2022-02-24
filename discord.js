@@ -16,6 +16,7 @@ client.on('messageCreate', message => {
     if (message.author.bot) return;
     console.log(message.content);
     let greetings = ['hi', 'hey', 'sup', 'hello'];
+    let trackStock = ['i would like to track stock', 'track stock'];
     // message accepts any greeting from the above array and bot will reply
     if (greetings.includes(message.content.toLowerCase())) {
         // randomly picks a response to reply to user
@@ -29,10 +30,9 @@ client.on('messageCreate', message => {
         message.channel.send('Sorry, I didn\'t quite understand that, can you make sure the input is correct!');
     }
     // User asks to track stock
-    if (message.content === 'I would like to track stock') {
+    else if (trackStock.includes(message.content.toLowerCase())) {
         message.channel.send('Alright, what product would you like to track?')
     }
-
 });
 
 // Login to Discord with your client's token
