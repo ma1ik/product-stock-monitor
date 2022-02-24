@@ -15,10 +15,10 @@ client.on('messageCreate', message => {
     // checks if author who sent message is a bot
     if (message.author.bot) return;
     console.log(message.content);
-    // compares message with user and bot replies
-    if (message.content.toLowerCase() === 'hello') {
+    let greetings = ['hi', 'hey', 'sup', 'hello'];
+    // message accepts any greeting from the above array and bot will reply
+    if (greetings.includes(message.content.toLowerCase())) {
         // randomly picks a response to reply to user
-        let greetings = ['Hi', 'Hey', 'Hello', 'Yo'];
         let randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
         // greets user's name and asks how can I help
         message.channel.send(randomGreeting + " " + message.author.username + ", how can I help you today?");
