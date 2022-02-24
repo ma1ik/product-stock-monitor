@@ -30,7 +30,7 @@ client.on('messageCreate', message => {
         message.channel.send('Sorry, I didn\'t quite understand that, can you make sure the input is correct!');
     }
     // User asks to track stock
-    else if (trackStock.includes(message.content.toLowerCase())) {
+   if (trackStock.includes(message.content.toLowerCase())) {
         message.channel.send('Alright, what product would you like to track?')
     }
 });
