@@ -1,4 +1,5 @@
 // Require the necessary discord.js classes
+
 const { Client, Intents } = require('discord.js');
 const { token } = require('./config.json');
 
@@ -13,7 +14,7 @@ client.once('ready', () => {
 // When user sends message in Discord, message appears in terminal
 client.on('messageCreate',  message => {
     // checks if author who sent message is a bot
-    if (message.author.bot) return;
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
     console.log(message.content);
     let greetings = ['hi', 'hey', 'sup', 'hello'];
     let trackStock = ['i would like to track stock', 'track stock', 'i want to track stock'];
@@ -39,3 +40,5 @@ client.on('messageCreate',  message => {
 
 // Login to Discord with your client's token
 client.login(token);
+
+
