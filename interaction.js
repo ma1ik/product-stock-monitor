@@ -11,6 +11,7 @@ client.once('ready', () => {
 client.on('messageCreate',  (message) => {
 
     if (message.author.bot) return;
+    // Code here the other if statements
 
 
     if (message.content === "?hello") {
@@ -19,7 +20,7 @@ client.on('messageCreate',  (message) => {
         const filter = m => m.content.includes('discord');
         const collector = message.channel.createMessageCollector({ filter, time: 15000 });
 
-    // Code here
+
 
         collector.on('collect', m => {
             console.log(`Collected ${m.content}`);
