@@ -10,30 +10,30 @@ client.once('ready', () => {
 
 client.on('messageCreate',  (message) => {
 
-    if (message.author.bot) return;
+    // `m` is a message object that will be passed through the filter function
+    // checks to make sure that the author message is the same as the message ID
+    const filter = m => m.author.id === message.author.id;
+    const collector = message.channel.createMessageCollector({ filter, time: 2000 });
+
+    collector.on('collect', m => {
+        console.log(`Collected ${m.content}`);
+    });
+
+    collector.on('end', collected => {
+        console.log(`Collected ${collected.size} items`);
+    });
+
+    let trackStock = ['ps5', 'playstation 5', 'i would like a ps5'];
     // Code here the other if statements
-
-
-    if (message.content === "?hello") {
-        message.channel.send("Hello there, What is your name?");
-        // `m` is a message object that will be passed through the filter function
-        const filter = m => m.content.includes('discord');
-        const collector = message.channel.createMessageCollector({ filter, time: 15000 });
-
-
-
-        collector.on('collect', m => {
-            console.log(`Collected ${m.content}`);
-        });
-
-        collector.on('end', collected => {
-            console.log(`Collected ${collected.size} items`);
-        });
-
+    if (message.content === "I would like to track stock") {
+        message.channel.send("Ok, what item would you like to track?");
     }
+
+    if (message.content === message.content.includes(trackStock)) {
+        message.channel.send("Alright, let me see what I can do");
+    }
+
 });
-
-
 
 
 client.login(token);
