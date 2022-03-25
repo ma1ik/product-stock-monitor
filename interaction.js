@@ -15,6 +15,16 @@ client.on('messageCreate',  (message) => {
     const filter = m => m.author.id === message.author.id;
     const collector = message.channel.createMessageCollector({ filter, time: 2000 });
 
+
+    // Code here the other if statements
+    if (message.content === "I would like to track stock") {
+        message.channel.send("Ok, what item would you like to track?");
+    }
+
+    if (message.content === 'ps5') {
+        message.channel.send("Alright, let me see what I can do");
+    }
+
     collector.on('collect', m => {
         console.log(`Collected ${m.content}`);
     });
@@ -22,16 +32,6 @@ client.on('messageCreate',  (message) => {
     collector.on('end', collected => {
         console.log(`Collected ${collected.size} items`);
     });
-
-    let trackStock = ['ps5', 'playstation 5', 'i would like a ps5'];
-    // Code here the other if statements
-    if (message.content === "I would like to track stock") {
-        message.channel.send("Ok, what item would you like to track?");
-    }
-
-    if (message.content === message.content.includes(trackStock)) {
-        message.channel.send("Alright, let me see what I can do");
-    }
 
 });
 
