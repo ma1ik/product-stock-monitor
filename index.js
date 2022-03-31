@@ -109,5 +109,16 @@ const cheerio = require('cheerio');
     zavvi(allProductsZavvi);
     simplyGames(allProducts);
 
+    // Created sub object for both functions to come under one object to export later:
+
+    let indexModule = {
+        simplyGames: 'Simply Games',
+        zavvi: 'Zavvi'
+    }
+// Just test printing the object functions
+//console.log(indexModule.simplyGames);
+//console.log(indexModule.zavvi);
+
+// Exporting the files:
 
 
