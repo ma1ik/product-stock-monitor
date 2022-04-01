@@ -106,21 +106,11 @@ const cheerio = require('cheerio');
         }
     }
     // To run the Zavvi and SimplyGames function website
-    zavvi(allProductsZavvi);
-    simplyGames(allProducts);
-
-    // Created sub object for both functions to come under one object to export later:
-
-    let indexModule = {
-        simplyGames: 'Simply Games',
-        zavvi: 'Zavvi'
-    }
-// Just test printing the object functions
-//console.log(indexModule.simplyGames);
-//console.log(indexModule.zavvi);
+    //zavvi(allProductsZavvi);
+    //simplyGames(allProducts);
 
 // Exporting the files:
-module.exports = {
-    indexModule
-}
+
+exports.simplyGames = simplyGames(allProducts);
+//exports.zavvi = zavvi(allProductsZavvi);
 

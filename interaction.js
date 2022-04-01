@@ -2,6 +2,9 @@
 const { Client, Intents } = require('discord.js');
 const { token } = require('./config.json');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const { simplyGames, zavvi } = require('./index');
+
+
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
@@ -20,8 +23,25 @@ client.on('messageCreate',  (message) => {
     if (message.content === "I would like to track stock") {
         message.channel.send("Ok, what item would you like to track?");
     }
+/*
+    let userChoice;
+    // switch statement
+    switch('switch_statement') {
+        case 'playstation 5':
+            userChoice = 'playstation 5';
+            break;
+        case 'playstation':
+            userChoice = 'playstation';
+            break;
+        case 'ps5':
+            userChoice = 'ps5';
+            break;
+        default:
+        // code block
+    }
 
-    if (message.content === 'ps5') {
+*/
+    if (message.content === 'userChoice') {
         message.channel.send("Alright, let me see what I can do");
     }
 
@@ -35,5 +55,9 @@ client.on('messageCreate',  (message) => {
 
 });
 
+
+
+simplyGames;
+//console.log(zavvi);
 
 client.login(token);
