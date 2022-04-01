@@ -120,5 +120,7 @@ const cheerio = require('cheerio');
 //console.log(indexModule.zavvi);
 
 // Exporting the files:
-
+module.exports = {
+    indexModule
+}
 
