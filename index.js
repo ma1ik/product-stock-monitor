@@ -109,17 +109,12 @@ const cheerio = require('cheerio');
         }
     }
     // To run the Zavvi and SimplyGames function website
-    zavvi(allProductsZavvi);
-    simplyGames(allProducts);
+    //zavvi(allProductsZavvi);
+    //simplyGames(allProducts);
 
 // Exporting the files:
 
-/*
+
 module.exports = {
         'Zavvi': zavvi(allProductsZavvi)
 };
-*/
-
-
-
-module.exports = zavvi

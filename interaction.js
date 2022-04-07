@@ -2,7 +2,8 @@
 const { Client, Intents } = require('discord.js');
 const { token } = require('./config.json');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-const { simplyGames, zavvi } = require('./index');
+const { zavvi } = require('./index');
+client.login(token)
 
 
 
@@ -23,25 +24,22 @@ client.on('messageCreate',  (message) => {
     if (message.content === "I would like to track stock") {
         message.channel.send("Ok, what item would you like to track?");
     }
-/*
+
     let userChoice;
     // switch statement
     switch('switch_statement') {
-        case 'playstation 5':
-            userChoice = 'playstation 5';
+        case 'nintendo switch grey':
+            userChoice = 'nintendo switch grey';
             break;
-        case 'playstation':
-            userChoice = 'playstation';
-            break;
-        case 'ps5':
-            userChoice = 'ps5';
+        case 'nintendo switch red blue':
+            userChoice = 'nintendo switch red blue';
             break;
         default:
-        // code block
+        case 'nintendo switch lite':
+            userChoice = 'nintendo switch lite';
+            break;
     }
-
-*/
-    if (message.content === 'userChoice') {
+    if (message.content === userChoice) {
         message.channel.send("Alright, let me see what I can do");
     }
 
@@ -55,9 +53,5 @@ client.on('messageCreate',  (message) => {
 
 });
 
-
-
-simplyGames;
 //console.log(zavvi);
 
-client.login(token);
