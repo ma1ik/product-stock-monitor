@@ -3,6 +3,8 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
     // Getting the product url and replacing it with a product ID
+    // SimplyGames website has closed down and is no longer working
+    // So trying to run products won't produce any results unfortunately
     const getProductUrlSimplyGames = (product_id) => `https://www.simplygames.com/p/${product_id}`;
 
     // Function for getting the product ID information with the use of headers to allow us to act like a web browser & avoid bot detection.
@@ -96,7 +98,8 @@ const cheerio = require('cheerio');
     // All products to be monitored for Zavvi
     const allProductsZavvi = [
         'consoles-nintendo-switch/nintendo-switch-neon-red-blue/12749474.html',
-        'nintendo-switch-lite-coral/12667100.html'
+        'nintendo-switch-lite-coral/12667100.html',
+        'consoles-nintendo-switch/nintendo-switch-console-with-grey-joy-con/11396049.html'
     ]
 
     // A function for loop that loops through the allProductsZavvi array and logs the status of each product e.g. name, status of stock and price.
@@ -106,11 +109,16 @@ const cheerio = require('cheerio');
         }
     }
     // To run the Zavvi and SimplyGames function website
-    //zavvi(allProductsZavvi);
-    //simplyGames(allProducts);
+    zavvi(allProductsZavvi);
+    simplyGames(allProducts);
 
 // Exporting the files:
+/*
+module.exports = {
+        'Zavvi': zavvi(allProductsZavvi),
+        'Simply Games': simplyGames(allProducts),
+}
 
-exports.simplyGames = simplyGames(allProducts);
-//exports.zavvi = zavvi(allProductsZavvi);
+*/
 
+module.exports = { zavvi, simplyGames }
