@@ -113,12 +113,13 @@ const cheerio = require('cheerio');
     simplyGames(allProducts);
 
 // Exporting the files:
+
 /*
 module.exports = {
-        'Zavvi': zavvi(allProductsZavvi),
-        'Simply Games': simplyGames(allProducts),
-}
-
+        'Zavvi': zavvi(allProductsZavvi)
+};
 */
 
-module.exports = { zavvi, simplyGames }
+
+
+module.exports = zavvi
