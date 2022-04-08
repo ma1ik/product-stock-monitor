@@ -18,14 +18,19 @@ client.on('messageCreate',  (message) => {
     // checks to make sure that the author message is the same as the message ID
     const filter = m => m.author.id === message.author.id;
     const collector = message.channel.createMessageCollector({ filter, time: 2000 });
+    if (message.author.bot) return;
+    let options = ("nintendo switch grey" + '\n' + "nintendo switch red blue" + '\n' + "nintendo switch lite coral");
 
+    // Asks user to select one of the options:
+    message.channel.send('Please select one of 3 options: ');
+    message.channel.send(options);
 
     // Code here the other if statements
     if (message.content === "I would like to track stock") {
         message.channel.send("Ok, what item would you like to track?");
     }
 
-    let userChoice;
+/*    let userChoice;
     // switch statement
     switch('switch_statement') {
         case 'nintendo switch grey':
@@ -38,18 +43,29 @@ client.on('messageCreate',  (message) => {
         case 'nintendo switch lite':
             userChoice = 'nintendo switch lite';
             break;
-    }
-    if (message.content === userChoice) {
+    }*/
+
+/*    // New switch statement [testing]
+    const options = ['nintendo switch grey', 'nintendo switch red blue', 'nintendo switch lite coral'];
+    const userChoice = options.find((o) => o === message.content);
+    if (!userChoice) {
+    ... handle incorrect choice
+        return;
+    }*/
+
+
+    if (message.content === 'userChoice') {
         message.channel.send("Alright, let me see what I can do");
     }
 
-    collector.on('collect', m => {
+    // useless block not needed
+/*    collector.on('collect', m => {
         console.log(`Collected ${m.content}`);
     });
 
     collector.on('end', collected => {
         console.log(`Collected ${collected.size} items`);
-    });
+    });*/
 
 });
 
