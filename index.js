@@ -58,8 +58,6 @@ const cheerio = require('cheerio');
     };
 
 // -------------- Zavvi Web Scraping--------------
-
-
     // Product url for Zavvi
     const getProductUrlZavvi = (product_id) => `https://www.zavvi.com/${product_id}`;
 
@@ -90,11 +88,8 @@ const cheerio = require('cheerio');
         'Stock Status': stockStatus,
         'Price': price,
     }
-
     console.log(productInfo);
-
 }
-
     // All products to be monitored for Zavvi
     const allProductsZavvi = [
         'consoles-nintendo-switch/nintendo-switch-neon-red-blue/12749474.html',
@@ -103,7 +98,7 @@ const cheerio = require('cheerio');
     ]
 
     // A function for loop that loops through the allProductsZavvi array and logs the status of each product e.g. name, status of stock and price.
-    const zavvi = allProductsZavvi => {
+    const zavvi = () => {
         for (let i = 0; i < allProductsZavvi.length; i++) {
             getProductZavvi(allProductsZavvi[i]);
         }
@@ -112,9 +107,8 @@ const cheerio = require('cheerio');
     //zavvi(allProductsZavvi);
     //simplyGames(allProducts);
 
-// Exporting the files:
-
-
-module.exports = {
-        'Zavvi': zavvi(allProductsZavvi)
+module.exports.zavviModule = () => {
+    zavvi
 };
+
+zavvi()
