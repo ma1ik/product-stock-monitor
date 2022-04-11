@@ -107,8 +107,11 @@ const cheerio = require('cheerio');
     //zavvi(allProductsZavvi);
     //simplyGames(allProducts);
 
-module.exports.zavviModule = () => {
+
+module.exports = {
+    getProductZavvi,
     zavvi
 };
 
+// Tests zavvi function to test web scraper
 zavvi()
