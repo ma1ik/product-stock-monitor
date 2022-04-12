@@ -10,7 +10,7 @@ const cheerio = require('cheerio');
     // Function for getting the product ID information with the use of headers to allow us to act like a web browser & avoid bot detection.
     async function getProductSimplyGames(product_id) {
         const productUrl = getProductUrlSimplyGames(product_id);
-        const { data }= await axios.get(productUrl, {
+        const { data } = await axios.get(productUrl, {
             headers: {
                 Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
                 Host: 'www.simplygames.com',
