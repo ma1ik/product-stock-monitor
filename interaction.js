@@ -2,7 +2,7 @@
 const { Client, Intents } = require('discord.js');
 const { token } = require('./config.json');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-let { getProductZavvi, zavvi, arraySelection } = require("./index.js");
+let { zavvi } = require("./index.js");
 
 client.login(token)
 
