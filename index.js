@@ -39,6 +39,9 @@ const cheerio = require('cheerio');
 }
     // Array of product pages to be monitored
     const allProducts = [
+        'gran-turismo-7-ps5',
+        'forza-horizon-5-xbox-series-x--s',
+        'grand-theft-auto-the-trilogy---the-definitive-edition-xbox-one-xbox-series-x--s',
         'xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s',
         'xbox-series-s-console-xbox-series-x',
         'ps5-console-ps4',
@@ -94,7 +97,8 @@ const cheerio = require('cheerio');
     const allProductsZavvi = [
         'consoles-nintendo-switch/nintendo-switch-neon-red-blue/12749474.html',
         'nintendo-switch-lite-coral/12667100.html',
-        'consoles-nintendo-switch/nintendo-switch-console-with-grey-joy-con/11396049.html'
+        'consoles-nintendo-switch/nintendo-switch-console-with-grey-joy-con/11396049.html',
+        'gift-other/xbox-series-x-mini-fridge-uk-plug/13490218.html',
     ]
 
     // A function for loop that loops through the allProductsZavvi array and logs the status of each product e.g. name, status of stock and price.
@@ -105,7 +109,7 @@ const cheerio = require('cheerio');
     }
     // To run the Zavvi and SimplyGames function website
     //zavvi(allProductsZavvi);
-    //simplyGames(allProducts);
+    simplyGames(allProducts);
 
 
 module.exports = {
@@ -114,4 +118,4 @@ module.exports = {
 };
 
 // Tests zavvi function to test web scraper
-zavvi()
+//zavvi()
