@@ -27,7 +27,7 @@ client.on('messageCreate',  (message) => {
         message.channel.send("Ok, what item would you like to track?");
     }
 
-    // New switch statement [testing]
+    // options for the user to select from
     const options = ['nintendo switch grey', 'nintendo switch red blue', 'nintendo switch lite'];
     const userChoice = options.find((o) => o === message.content);
     if (!userChoice) {
@@ -38,10 +38,10 @@ client.on('messageCreate',  (message) => {
     if (message.content === userChoice) {
         message.channel.send("Alright, let me see what I can do");
     }
-    // users message is compared to the product, if it's the same then zavvi will return the web scraped product to the user
+    // users message is compared to the product
+    // if it's the same then zavvi will return the web scraped product to the user
     if (message.content === 'nintendo switch grey') {
         return message.reply(zavvi);
-
     }
 });
 
