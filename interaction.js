@@ -6,11 +6,12 @@ let { zavvi } = require("./index.js");
 
 client.login(token)
 
-// When the client is ready, run this code (only once)
+// Bot logs into the discord channel
 client.once('ready', () => {
     console.log(`${client.user.tag} has logged in.`);
 });
 
+// Message collector to collect all messages as part of the interaction between the user and bot
 client.on('messageCreate',  (message) => {
 
     // `m` is a message object that will be passed through the filter function
@@ -18,8 +19,10 @@ client.on('messageCreate',  (message) => {
     const filter = m => m.author.id === message.author.id;
     const collector = message.channel.createMessageCollector({filter, time: 2000});
 
+    // checks if the user is a bot and if it's not a bot it will allow the next if statement to be ran
     if (message.author.bot) return;
 
+    // comapres users message with the statement tracking stock
     if (message.content === "I would like to track stock") {
         message.channel.send("Ok, what item would you like to track?");
     }
@@ -31,11 +34,11 @@ client.on('messageCreate',  (message) => {
         //handles incorrect choice
         return;
     }
-
+    // comapres users message with user choice
     if (message.content === userChoice) {
         message.channel.send("Alright, let me see what I can do");
     }
-
+    // users message is compared to the product, if it's the same then zavvi will return the web scraped product to the user
     if (message.content === 'nintendo switch grey') {
         return message.reply(zavvi);
 
