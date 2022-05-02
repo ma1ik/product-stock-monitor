@@ -44,37 +44,3 @@ client.on('messageCreate',  (message) => {
         return message.reply(zavvi);
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // useless block not needed
-/*    collector.on('collect', m => {
-        console.log(`Collected ${m.content}`);
-    });
-
-    collector.on('end', collected => {
-        console.log(`Collected ${collected.size} items`);
-    });*/
-
-
