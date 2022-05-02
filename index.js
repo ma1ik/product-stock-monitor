@@ -2,6 +2,13 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
+    // Getting date
+    let today = new Date();
+    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    // Getting time
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let dateTime = date+' '+time;
+
     // Getting the product url and replacing it with a product ID
     // SimplyGames website has closed down and is no longer working
     // So trying to run products won't produce any results unfortunately
@@ -20,6 +27,8 @@ const cheerio = require('cheerio');
             }
         });
 
+
+
     /* Web scrapes for the product, stockStatus and price.
        For stock status, it checks if product is in stock and returns true, otherwise returns false
     */
@@ -33,24 +42,27 @@ const cheerio = require('cheerio');
         'Product Name': product,
         'Stock Status': stockStatus,
         'Price': price,
+        'Date': dateTime,
     }
-    // Prints product info variables needed for program to function
+
+
+        // Prints product info variables needed for program to function
     console.log(productInfo);
 }
     // Array of product pages to be monitored
     const allProducts = [
         'gran-turismo-7-ps5',
-        'forza-horizon-5-xbox-series-x--s',
         'grand-theft-auto-the-trilogy---the-definitive-edition-xbox-one-xbox-series-x--s',
-        'xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s',
-        'xbox-series-s-console-xbox-series-x',
         'ps5-console-ps4',
+        'xbox-series-s-console-xbox-series-x',
+/*      'xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s',
+        'forza-horizon-5-xbox-series-x--s',
         'playstation5-digital-edition-ps5',
         'ps4-slim-500gb-console-ps4',
         'xbox-one-x-console-xbox-one',
         'xbox-one-s-console--1tb-hdd-xbox-one',
         'nintendo-switch-neon-redneon-blue-nintendo-switch',
-        'nintendo-switch-lite-coral--animal-crossing-bundle-nintendo-switch'
+        'nintendo-switch-lite-coral--animal-crossing-bundle-nintendo-switch'*/
     ]
 
     // A function for loop that loops through the allProducts array and logs the status of each product e.g. name, status of stock and price.
@@ -90,6 +102,7 @@ const cheerio = require('cheerio');
         'Product': product,
         'Stock Status': stockStatus,
         'Price': price,
+        'Date': dateTime,
     }
     console.log(productInfo);
 }
@@ -108,7 +121,7 @@ const cheerio = require('cheerio');
         }
     }
     // To run the Zavvi and SimplyGames function website
-    //zavvi(allProductsZavvi);
+    zavvi(allProductsZavvi);
     simplyGames(allProducts);
 
 
@@ -117,5 +130,3 @@ module.exports = {
     zavvi
 };
 
-// Tests zavvi function to test web scraper
-//zavvi()
