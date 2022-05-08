@@ -10,8 +10,6 @@ const cheerio = require('cheerio');
     let dateTime = date+' '+time;
 
     // Getting the product url and replacing it with a product ID
-    // SimplyGames website has closed down and is no longer working
-    // So trying to run products won't produce any results unfortunately
     const getProductUrlSimplyGames = (product_id) => `https://www.simplygames.com/p/${product_id}`;
 
     // Function for getting the product ID information with the use of headers to allow us to act like a web browser & avoid bot detection.
