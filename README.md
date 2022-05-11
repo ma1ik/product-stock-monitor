@@ -27,7 +27,22 @@ Use the allProducts array and put the product ID in there.
 Zavvi:
 Use the allProductsZavvi array and put the product ID in there.
 
+### An Example on how to add the product ID for any product on SimplyGames:
+In this example I'll be using LEGO Star Wars: The Skywalker Saga on Xbox One.
+
+Copy the part after the /p/ so e.g. lego-star-wars-the-skywalker-saga-xbox-one
+![image](https://user-images.githubusercontent.com/23563378/167918616-aaa583a7-b70e-48ab-9d48-3b618e1526c1.png)
+
+Go to the allProducts array and paste it in between the quotation marks as shown below.
+![image](https://user-images.githubusercontent.com/23563378/167919107-42e30774-831f-495a-9c17-6b9de3cf200c.png)
+
+Then, run the web scraper and you've managed to webscrape the LEGO Star Wars console game.
+![image](https://user-images.githubusercontent.com/23563378/167919305-5c74122e-7030-4c58-90ef-7f6645fa31f7.png)
+
+
+
 ### An Example on how to add the product ID for any product on Zavvi:
+
 In this example I'll be using blu-ray spiderman film.
 
 Copy the part after the / so e.g. blu-ray/spider-man-1-3-4k-ultra-hd-includes-blu-ray/13436577.html
