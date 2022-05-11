@@ -48,7 +48,14 @@ Then, run the web scraper and you've managed to webscrape the spiderman blu-ray 
 
 Join the discord server: https://discord.gg/9Qc2zP6rbS
 
-To start the discord bot and allow it to come online, type in the terminal of your IDE `node interaction.js`. The bot will then log in. If the bot isn't logged in, then the interaction with the bot in Discord won't work.
+To start the discord bot and allow it to come online, type in the terminal of your IDE `node interaction.js`. The bot will then log in. If the bot isn't logged in, then the interaction with the bot in Discord won't work. It should appear on the right hand side of discord that the bot is online.
+
+![image](https://user-images.githubusercontent.com/23563378/167906600-9bc724ca-0119-4c92-a3d5-ad36df7c64e8.png)
+
+
+![image](https://user-images.githubusercontent.com/23563378/167906814-3b86b118-f97f-4627-9591-5a13b6a5a072.png)
+
+
 
 Use the discord server link to join the server. Then within the #general chat, here you will be able to communicate with the discord bot. To get started you can type the following command to track stock, make you it’s copied exactly as shown below
 
