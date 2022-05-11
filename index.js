@@ -119,7 +119,10 @@ const cheerio = require('cheerio');
             getProductZavvi(allProductsZavvi[i]);
         }
     }
-    // To run the Zavvi and SimplyGames function website
+    /*These are the functions that allow you to see the web scraping in action.
+    Once the web scraper is ran, both simply games and zavvi will web scrape the products.
+    If you want to focus on one website web scraping, comment out the other function e.g. simplyGames(allproducts) then re-run the software.
+    */
     zavvi(allProductsZavvi);
     simplyGames(allProducts);
 
