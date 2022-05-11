@@ -27,10 +27,18 @@ Use the allProducts array and put the product ID in there.
 Zavvi:
 Use the allProductsZavvi array and put the product ID in there.
 
-### Example on how to add the product ID for the following product link:
+### An Example on how to add the product ID for any product on Zavvi:
+In this example I'll be using blu-ray spiderman film.
 
+Copy the part after the / so e.g. blu-ray/spider-man-1-3-4k-ultra-hd-includes-blu-ray/13436577.html
+![image](https://user-images.githubusercontent.com/23563378/167905134-01894d8d-9475-4765-9512-786f4ca5b49b.png)
 
-![image](https://user-images.githubusercontent.com/23563378/167903625-1b3e411a-1248-4b97-8aa4-7f17e56393bd.png)
+Go to the allProductsZavvi array and paste it in between the quotation marks as shown below.
+![image](https://user-images.githubusercontent.com/23563378/167905481-37deaba6-cba8-4cc8-b115-b97a882f37f5.png)
+
+Then, run the web scraper and you've managed to webscrape the spiderman blu-ray film.
+![image](https://user-images.githubusercontent.com/23563378/167906301-0f481d9c-7412-4957-8ae9-7d69ccba0b9d.png)
+
 
 
 ## Focusing on one website to webscrape:
