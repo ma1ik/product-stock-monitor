@@ -19,6 +19,20 @@ To run the web scraper, in the terminal of your IDE type `node index.js` and thi
 
 ## Adding a product to webscrape:
 
+To add further products to webscrape, put the product ID of the product you want to web scrape.
+
+Simply Games:
+Use the allProducts array and put the product ID in there.
+
+Zavvi:
+Use the allProductsZavvi array and put the product ID in there.
+
+### Example on how to add the product ID for the following product link:
+
+
+![image](https://user-images.githubusercontent.com/23563378/167903625-1b3e411a-1248-4b97-8aa4-7f17e56393bd.png)
+
+
 ## Focusing on one website to webscrape:
 
 
