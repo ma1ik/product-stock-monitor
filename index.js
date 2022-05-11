@@ -53,14 +53,7 @@ const cheerio = require('cheerio');
         'grand-theft-auto-the-trilogy---the-definitive-edition-xbox-one-xbox-series-x--s',
         'ps5-console-ps4',
         'xbox-series-s-console-xbox-series-x',
-/*      'xbox-series-s-fortnite-and-rocket-league-bundle-xbox-series-x--s',
-        'forza-horizon-5-xbox-series-x--s',
-        'playstation5-digital-edition-ps5',
-        'ps4-slim-500gb-console-ps4',
-        'xbox-one-x-console-xbox-one',
-        'xbox-one-s-console--1tb-hdd-xbox-one',
-        'nintendo-switch-neon-redneon-blue-nintendo-switch',
-        'nintendo-switch-lite-coral--animal-crossing-bundle-nintendo-switch'*/
+        'lego-star-wars-the-skywalker-saga-xbox-one',
     ]
 
     // A function for loop that loops through the allProducts array and logs the status of each product e.g. name, status of stock and price.
@@ -110,7 +103,8 @@ const cheerio = require('cheerio');
         'nintendo-switch-lite-coral/12667100.html',
         'consoles-nintendo-switch/nintendo-switch-console-with-grey-joy-con/11396049.html',
         'gift-other/xbox-series-x-mini-fridge-uk-plug/13490218.html',
-        'toys-games/pokemon-tcg-sword-shield-6-elite-trainer-box/12916529.html'
+        'toys-games/pokemon-tcg-sword-shield-6-elite-trainer-box/12916529.html',
+        'blu-ray/spider-man-1-3-4k-ultra-hd-includes-blu-ray/13436577.html'
     ]
 
     // A function for loop that loops through the allProductsZavvi array and logs the status of each product e.g. name, status of stock and price.

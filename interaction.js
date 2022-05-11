@@ -28,7 +28,7 @@ client.on('messageCreate',  (message) => {
     }
 
     // options for the user to select from
-    const options = ['nintendo switch grey', 'nintendo switch red blue', 'nintendo switch lite'];
+    const options = ['nintendo switch grey', 'nintendo switch red blue', 'nintendo switch lite', 'xbox mini fridge', 'pokemon elite trainer box'];
     const userChoice = options.find((o) => o === message.content);
     if (!userChoice) {
         //handles incorrect choice
