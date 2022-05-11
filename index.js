@@ -110,6 +110,7 @@ const cheerio = require('cheerio');
         'nintendo-switch-lite-coral/12667100.html',
         'consoles-nintendo-switch/nintendo-switch-console-with-grey-joy-con/11396049.html',
         'gift-other/xbox-series-x-mini-fridge-uk-plug/13490218.html',
+        'toys-games/pokemon-tcg-sword-shield-6-elite-trainer-box/12916529.html'
     ]
 
     // A function for loop that loops through the allProductsZavvi array and logs the status of each product e.g. name, status of stock and price.
