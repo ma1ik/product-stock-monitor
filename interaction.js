@@ -22,7 +22,7 @@ client.on('messageCreate',  (message) => {
     // checks if the user is a bot and if it's not a bot it will allow the next if statement to be ran
     if (message.author.bot) return;
 
-    // comapres users message with the statement tracking stock
+    // compares users message with the statement tracking stock
     if (message.content === "I would like to track stock") {
         message.channel.send("Ok, what item would you like to track?");
     }
@@ -34,12 +34,13 @@ client.on('messageCreate',  (message) => {
         //handles incorrect choice
         return;
     }
-    // comapres users message with user choice
+    // compares users message with user choice
     if (message.content === userChoice) {
         message.channel.send("Alright, let me see what I can do");
     }
     // users message is compared to the product
     // if it's the same then zavvi will return the web scraped product to the user
+    // However, this part below is unfinished and does not work, so the tracked product the user requested won't appear.
     if (message.content === 'nintendo switch grey') {
         return message.reply(zavvi);
     }
