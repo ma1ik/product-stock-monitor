@@ -84,6 +84,9 @@ Select one of the options below, which item you want to track and message it to 
 - xbox mini fridge
 - pokemon elite trainer box
 
+![image](https://user-images.githubusercontent.com/23563378/167919707-2baf2473-7b28-42c2-94a2-e102c6406419.png)
+
+
 **The interaction chat is not finished, so the bot won't display the tracked item. But you can still test the interaction messages with the bot.**
 
 ### You may notice:
